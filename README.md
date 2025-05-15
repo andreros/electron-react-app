@@ -3,10 +3,10 @@
 This application is a cross-platform desktop app built with Electron, React 19 and TypeScript, using Sass for styling and PNPM as the package manager. The frontend is bundled with Rsbuild. 
 
 The project uses a monorepo folder structure with separate `main` and `renderer` packages: 
-- The main package contains the Electron main process and a secure preload.ts script that exposes IPC-safe APIs to the React app; 
-- The renderer package contains the React SPA, styled with Sass and linted using Biome;
+- The main package contains the Electron main process and a secure `preload.ts` script that exposes IPC-safe APIs to the react application; 
+- The renderer package contains the React SPA, styled with Sass;
 
-The application can be packaged through `electron-builder`. For the application distributables creation, please read the section below.
+The application can be packaged through the `electron-builder` bundler. For the application distributables creation, please read the section below.
 
 ## Tech stack
 
@@ -29,6 +29,16 @@ The application can be packaged through `electron-builder`. For the application 
 ```bash
 # Run the application in development mode
 pnpm dev
+```
+
+```bash
+# Build the application (both packages)
+pnpm build
+```
+
+```bash
+# Run linter
+pnpm lint
 ```
 
 ```bash
