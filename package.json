@@ -1,0 +1,22 @@
+{
+  "name": "electron-react-app",
+  "description": "This application is a cross-platform desktop app built with Electron, React 19 and TypeScript.",
+  "author": {
+    "name": "André Rosa",
+    "email": "andreros@gmail.com"
+  },
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter renderer dev\" \"wait-on http://localhost:3000 && pnpm --filter main start\"",
+    "build": "pnpm --filter renderer build && pnpm --filter main build",
+    "lint": "biome check .",
+    "lint:fix": "biome format . --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "concurrently": "9.1.2",
+    "wait-on": "8.0.3"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "main",
+  "description": "Example electron application.",
+  "homepage": "http://example.electron.app",
+  "author": {
+    "name": "André Rosa",
+    "email": "andreros@gmail.com"
+  },
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "build": {
+    "appId": "com.example.electronapp",
+    "productName": "MyElectronApp",
+    "files": ["../renderer/dist/**/*", "dist/**/*"],
+    "extraResources": [
+      {
+        "from": "../renderer/dist",
+        "to": "renderer"
+      }
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "asar": true,
+    "extraMetadata": {
+      "main": "dist/index.js"
+    },
+    "mac": {
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
+  },
+  "scripts": {
+    "start": "tsc && electron dist/index.js",
+    "fix-electron": "node node_modules/electron/install.js",
+    "build": "rm -rf dist && tsc",
+    "dist": "electron-builder --dir",
+    "dist:mac": "electron-builder -m",
+    "dist:windows": "electron-builder -w",
+    "dist:linux": "electron-builder -l",
+    "dist:all": "electron-builder -mwl"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.18",
+    "electron": "36.2.0",
+    "electron-builder": "26.0.12",
+    "typescript": "5.8.3"
+  }
+}
