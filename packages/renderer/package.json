@@ -1,11 +1,11 @@
 {
   "name": "renderer",
-  "description": "",
+  "description": "React application to be rendered inside the Electron application",
+  "version": "1.0.0",
   "author": {
     "name": "André Rosa",
     "email": "andreros@gmail.com"
   },
-  "version": "1.0.0",
   "license": "Unlicense",
   "scripts": {
     "build": "rsbuild build && node scripts/fixBuildPaths.js",
